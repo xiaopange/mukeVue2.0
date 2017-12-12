@@ -253,161 +253,176 @@
   </div>
 </template>
 <script>
-import Vue from 'vue'
-import componentA from "./components/myHelloWorld"
-import comA from "./components/a"
-import part4ComA from "./components/part4ComA"
-import part4ComB from "./components/part4ComB"
+import Vue from "vue";
+import componentA from "./components/myHelloWorld";
+import comA from "./components/a";
+import part4ComA from "./components/part4ComA";
+import part4ComB from "./components/part4ComB";
 export default {
   // name: 'app'
-  data (){
-    return{
-      hello:'world',
-      hello2:"<span>world</span>",
-      num:1,
-      status:true,
-      lists:[
+  data() {
+    return {
+      hello: "world",
+      hello2: "<span>world</span>",
+      num: 1,
+      status: true,
+      lists: [
         {
-          name:"apple",
-          price:34
+          name: "apple",
+          price: 34
         },
         {
-          name:"banana",
-          price:56
-        },
+          name: "banana",
+          price: 56
+        }
       ],
-      objlists:{
-        name:"orange",
-        price:68,
-        color:"yellow",
-        weight:14
+      objlists: {
+        name: "orange",
+        price: 68,
+        color: "yellow",
+        weight: 14
       },
-      link:"http://www.baidu.com",
-      partA:"组件绑定数据",
-      redColor:"red",
-      blueColor:"blue",
-      objColor:{ //v-bind 绑定的是对象，看对象中的哪个值符合条件便渲染哪个值
-        red:true,
-        blue:false
+      link: "http://www.baidu.com",
+      partA: "组件绑定数据",
+      redColor: "red",
+      blueColor: "blue",
+      objColor: {
+        //v-bind 绑定的是对象，看对象中的哪个值符合条件便渲染哪个值
+        red: true,
+        blue: false
       },
-      objColor2:{ //v-bind 绑定的是对象，看对象中的哪个值符合条件便渲染哪个值
-        red:false,
-        blue:true
+      objColor2: {
+        //v-bind 绑定的是对象，看对象中的哪个值符合条件便渲染哪个值
+        red: false,
+        blue: true
       },
-      inputText:"",
-      inputText2:"",
-      inputText3:"",
-      checkboxText:[],
-      radioText:[],
-      selectText:"",
-      selectOption:"",
-      selectOptions:[
-        { text:"apple",value:"sA" },
-        { text:"banana",value:"sB" },
-        { text:"orange",value:"sC" },
+      inputText: "",
+      inputText2: "",
+      inputText3: "",
+      checkboxText: [],
+      radioText: [],
+      selectText: "",
+      selectOption: "",
+      selectOptions: [
+        { text: "apple", value: "sA" },
+        { text: "banana", value: "sB" },
+        { text: "orange", value: "sC" }
       ],
-      myValue:"",
-      myVal:"",
-      myList:[
-        { name:"apple",price:20 },
-        { name:"banana",price:210 },
-      ],
-      part4:{ //第四章
-        comToRender:'part4-com-a',
-        myVal:"",
-        myVal2:null,
-        currentView:"part4-com-a"
+      myValue: "",
+      myVal: "",
+      myList: [{ name: "apple", price: 20 }, { name: "banana", price: 210 }],
+      part4: {
+        //第四章
+        comToRender: "part4-com-a",
+        myVal: "",
+        myVal2: null,
+        currentView: "part4-com-a"
       }
-    }
+    };
   },
-  components:{  //components要接受的其实是一个对象，所以这里相当于 components:{ componentA :componentA }
-    componentA:componentA,
-    comA:comA, 
-    part4ComA:part4ComA , 
-    part4ComB:part4ComB 
-  }, 
-  methods:{
-    addItem(){
+  components: {
+    //components要接受的其实是一个对象，所以这里相当于 components:{ componentA :componentA }
+    componentA: componentA,
+    comA: comA,
+    part4ComA: part4ComA,
+    part4ComB: part4ComB
+  },
+  methods: {
+    addItem() {
       this.lists.push({
-        name:"pineapple",
-        price:234
-      })
+        name: "pineapple",
+        price: 234
+      });
     },
-    modifyItem(){
-      this.lists[1]={
-        name:"pineapple1",
-        price:2341
+    modifyItem() {
+      this.lists[1] = {
+        name: "pineapple1",
+        price: 2341
       };
-      console.log(this.lists)   /* 这里直接修改数组中某个数据是不会触发页面列表的更新，但是从打印出来的数据可以看到 该条列表的确已经改变 */
+      console.log(
+        this.lists
+      ); /* 这里直接修改数组中某个数据是不会触发页面列表的更新，但是从打印出来的数据可以看到 该条列表的确已经改变 */
     },
-    modifyItem2(){
-      Vue.set(this.lists,'1',{  //用vue的全局方法set方法可以触发该条数据的更新以及页面列表的更新，第一个参数是要修改的数组，第二个参数是要修改哪一条数据，第三个参数是要修改成什么数据
-                                // Vue 目前是定义在main.js，所以这里要通过import 引进来
-        name:"pineapple11",
-        price:23411
-      })
-      console.log(this.lists)  /* 可以看到页面列表和打印出来的数据都更新了 */
+    modifyItem2() {
+      Vue.set(this.lists, "1", {
+        //用vue的全局方法set方法可以触发该条数据的更新以及页面列表的更新，第一个参数是要修改的数组，第二个参数是要修改哪一条数据，第三个参数是要修改成什么数据
+        // Vue 目前是定义在main.js，所以这里要通过import 引进来
+        name: "pineapple11",
+        price: 23411
+      });
+      console.log(this.lists); /* 可以看到页面列表和打印出来的数据都更新了 */
     },
-    toggle(){//切换类
-        this.objColor.red=!this.objColor.red
-        this.objColor.blue=!this.objColor.blue
+    toggle() {
+      //切换类
+      this.objColor.red = !this.objColor.red;
+      this.objColor.blue = !this.objColor.blue;
     },
-    onkeyDown(){  //键盘enter键 事件修改器
-      console.log("on key down")
+    onkeyDown() {
+      //键盘enter键 事件修改器
+      console.log("on key down");
     },
-    onComAMyEvent(pramA){ //父组件有一个自定义事件my-event，这个事件的触发是由子组件的button点击而成，
-                          //父组件监听到子组件button触发后再执行onComAMyEvent函数
-                          //pramA 是由子组件触发后传过来的参数
-      console.log("onComAMyEvent"+"："+pramA)
+    onComAMyEvent(pramA) {
+      //父组件有一个自定义事件my-event，这个事件的触发是由子组件的button点击而成，
+      //父组件监听到子组件button触发后再执行onComAMyEvent函数
+      //pramA 是由子组件触发后传过来的参数
+      console.log("onComAMyEvent" + "：" + pramA);
     },
-    getMyValueWithoutNum(){
-      return this.myValue.replace(/\d/g,"")
+    getMyValueWithoutNum() {
+      return this.myValue.replace(/\d/g, "");
     },
-    changeList(){
-      Vue.set(this.myList,"0",{
-        name:"orange",
-        price:1000
+    changeList() {
+      Vue.set(this.myList, "0", {
+        name: "orange",
+        price: 1000
       });
       // this.tellListChanged()
     },
-    removeList(){
-      this.myList.splice('1',1);
+    removeList() {
+      this.myList.splice("1", 1);
       // this.tellListChanged()
     },
-    tellListChanged(){
+    tellListChanged() {
       alert("当前myList改变了！");
-      console.log(this.myList)
+      console.log(this.myList);
     },
-    changeComToRender(){
-      this.part4.comToRender="com-a";
-      console.log(this.part4.comToRender)
+    changeComToRender() {
+      this.part4.comToRender = "com-a";
+      console.log(this.part4.comToRender);
     },
-    part4getMyEvent(hello){
-      console.log("子组件触发了myEvent事件"+hello)
+    part4getMyEvent(hello) {
+      console.log("子组件触发了myEvent事件" + hello);
     },
-    changeCurrentView(){
-      this.part4.currentView='part4-com-b'
+    changeCurrentView() {
+      this.part4.currentView = "part4-com-b";
     }
   },
-  computed:{
-    myValueWithoutNum(){ //剔除掉输入的数字变成""
-      return this.myValue.replace(/\d/g,"")
+  computed: {
+    myValueWithoutNum() {
+      //剔除掉输入的数字变成""
+      return this.myValue.replace(/\d/g, "");
     }
   },
-  watch:{ //属性监听
-    myVal(val,oldval){ //监听myVal 这个属性，第一个参数代表当前值，第二个参数代表旧的值，每当新值和旧值不同时都会触发这个函数
-      console.log("新数据："+val +"/旧数据："+oldval)
+  watch: {
+    //属性监听
+    myVal(val, oldval) {
+      //监听myVal 这个属性，第一个参数代表当前值，第二个参数代表旧的值，每当新值和旧值不同时都会触发这个函数
+      console.log("新数据：" + val + "/旧数据：" + oldval);
     },
-    myList(){ //监听myList 这个数据，当其发生改变时触发tellListChanged函数，这样就不用在上面changeList 和 removeList 两个函数上再分别执行tellListChange函数了
-      this.tellListChanged()
+    myList() {
+      //监听myList 这个数据，当其发生改变时触发tellListChanged函数，这样就不用在上面changeList 和 removeList 两个函数上再分别执行tellListChange函数了
+      this.tellListChanged();
     }
   }
-}
+};
 </script>
 <style>
-*{margin: 0;padding: 0;list-style: none;}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -415,19 +430,19 @@ export default {
   margin-top: 40px;
   margin-bottom: 40px;
 }
-.bigbox{
+.bigbox {
   margin-bottom: 40px;
-  padding-bottom:20px;
-  border-bottom:1px solid purple;
+  padding-bottom: 20px;
+  border-bottom: 1px solid purple;
 }
-.box{
-  padding:5px;
-  border:1px solid red;
-  margin:10px;;
+.box {
+  padding: 5px;
+  border: 1px solid red;
+  margin: 10px;
 }
-.box p,.box li{
-  padding:3px;
+.box p,
+.box li {
+  padding: 3px;
   border-bottom: 1px solid #ccc;
 }
-
 </style>
