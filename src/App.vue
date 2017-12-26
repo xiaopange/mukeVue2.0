@@ -249,6 +249,9 @@
            <button v-on:click="changeCurrentView">点击改变这个动态组件</button>
         </p>
       </div>
+      <div class="box">
+        <h4>过度动画-css实现过渡</h4>
+      </div>
     </div>
   </div>
 </template>
