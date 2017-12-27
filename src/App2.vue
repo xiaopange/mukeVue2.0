@@ -44,7 +44,8 @@
                 <li> <b> 路由：</b>简单来说就是通过不同的地址切换到不同的页面；<br></li>
                 <li><b> 前端路由：</b>
                   <a href="https://www.zhihu.com/question/53064386" target="view_window">https://www.zhihu.com/question/53064386</a> &nbsp 
-                  <a href="https://www.cnblogs.com/yuqing6/p/6731980.html" target="view_window">https://www.cnblogs.com/yuqing6/p/6731980.html</a></li>
+                  <a href="https://www.cnblogs.com/yuqing6/p/6731980.html" target="view_window">https://www.cnblogs.com/yuqing6/p/6731980.html</a>
+                </li>
                 <li><b> 单页面：</b></li> 
                 <li>
                   <b style="color:red;;">******传统路由与前端路由的区别:</b>
@@ -55,14 +56,18 @@
               使用前端路由：
               <ul style="padding:10px;margin:0px 10px 5px 10px;font-size:16px;font-weight:normal;">
                 <li> <b> 第一步：安装前端路由：</b>
-					(1) 使用命令 cnpm install vue-router --save 。
-					(2) main.js里通过 import VRouter from "vue-router" 引进来，然后因为vue-router是vue的插件所以要通过Vue.use("VRouter") vue.use全局方法注册来使用路由;
-				</li>
-				<li><b>注意点：</b>
-					(1)map，就是规定什么样的地址访问什么样的页面或者说组件； <br>
-					(2)router-view，就是在什么样的位置显示不同的页面； <br>
-					(3)router-link,就是在页面上如何跳转到下一个页面；
-				</li>
+                  (1) 使用命令 cnpm install vue-router --save 。
+                  (2) main.js里通过 import VRouter from "vue-router" 引进来，然后因为vue-router是vue的插件所以要通过Vue.use("VRouter") vue.use全局方法注册来使用路由;
+                </li>
+                <li><b>注意点：</b> <br>
+                  (1)map，就是规定什么样的地址访问什么样的页面或者说组件； <br>
+                  (2)router-view，就是在什么样的位置显示不同的页面； <br>
+                  (3)router-link,就是在页面上如何跳转到下一个页面；
+                </li>
+                <li>
+                  main.js里当VRouter引入进来后VRrouter是一个全局的类，所以我们使用这个路由时就是实例化这个类(let router =new VRouter({}),这个router是实例化的router ),详情看mian.js; <br>
+
+                </li>
               </ul>
             </div>
           </h3>
