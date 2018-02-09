@@ -66,7 +66,18 @@
                 </li>
                 <li>
                   main.js里当VRouter引入进来后VRrouter是一个全局的类，所以我们使用这个路由时就是实例化这个类(let router =new VRouter({}),这个router是实例化的router ),详情看mian.js; <br>
-
+                </li>
+                <li> <b> 第二步：案例</b>
+                  <router-view></router-view>
+                  <router-link :to="{path:'/'}">
+                    <button class="btn" type="button">回首页</button>
+                  </router-link>
+                  <router-link :to="{path:'apple'}">
+                    <button class="btn" type="button">to Apple</button>
+                  </router-link>
+                  <router-link :to="{path:'banana'}">
+                    <button class="btn" type="button">to banana</button>
+                  </router-link>
                 </li>
               </ul>
             </div>
@@ -82,6 +93,7 @@ import componentA from "./components/myHelloWorld";
 import comA from "./components/a";
 import part4ComA from "./components/part4ComA";
 import part4ComB from "./components/part4ComB";
+import apple from "./components/apple";
 export default {
   // name: 'app'
   data() {
@@ -148,5 +160,8 @@ export default {
 .box li {
   padding: 5px;
   border-bottom: 1px solid #ccc;
+}
+.btn{
+  padding: 4px 8px;background:rgb(72, 178, 248);color:#fff;
 }
 </style>

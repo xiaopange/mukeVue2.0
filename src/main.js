@@ -9,9 +9,19 @@ import VRouter from 'vue-router' //引入路由插件vue-router
 Vue.use(VRouter) //全局注册使用路由VRouter
 Vue.config.productionTip = false
 //当引入VRouter库后VRouter是一个全局的类，当使用这个路由时是定义router来实例化这个路由，然后将这个router插入到vue根实例里router
-let router =new VRouter({
-
-}) 
+/* let Router = new VRouter({
+  mode:"history",
+  routes: [
+    {
+      path: "/apple",
+      component: Apple
+    },
+    {
+      path: "/banana",
+      component: Banana
+    }
+  ]
+}); */
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
